@@ -21,7 +21,11 @@
 
                     <div class="mb-3">
                         <label asp-for="DataHora" class="form-label fw-semibold"></label>
-                        <input asp-for="DataHora" type="datetime-local" class="form-control" />
+                        <input asp-for="DataHora" 
+                               type="datetime-local" 
+                               step="60" 
+                               value="@Model?.DataHora.ToString("yyyy-MM-ddTHH:mm")" 
+                               class="form-control" />
                         <span asp-validation-for="DataHora" class="text-danger small"></span>
                     </div>
 

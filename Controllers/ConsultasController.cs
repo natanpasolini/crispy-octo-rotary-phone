@@ -38,7 +38,10 @@ public class ConsultasController : Controller
     // GET: Consultas/Create
     public IActionResult Create()
     {
-        return View(new Consulta { DataHora = DateTime.Now.AddDays(1) });
+        var agora = DateTime.Now.AddDays(1);
+        var dataInicial = new DateTime(agora.Year, agora.Month, agora.Day, agora.Hour, agora.Minute, 0);
+
+        return View(new Consulta { DataHora = dataInicial });
     }
 
     // POST: Consultas/Create
