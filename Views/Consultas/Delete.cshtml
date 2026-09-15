@@ -1,0 +1,37 @@
+@model SistemaConsultasUVV.Models.Consulta
+@{
+    ViewData["Title"] = "Excluir Consulta";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-danger text-white py-3">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-exclamation-triangle"></i> Confirmar Exclusão</h4>
+            </div>
+            <div class="card-body p-4">
+                <p class="lead">Tem certeza de que deseja excluir este agendamento?</p>
+                <div class="bg-light p-3 rounded mb-3">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Especialidade:</dt>
+                        <dd class="col-sm-8 fw-bold">@Model.Especialidade</dd>
+
+                        <dt class="col-sm-4 text-muted">Data/Hora:</dt>
+                        <dd class="col-sm-8">@Model.DataHora.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                        <dt class="col-sm-4 text-muted">Descrição:</dt>
+                        <dd class="col-sm-8">@Model.Descricao</dd>
+                    </dl>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+                        <button type="submit" class="btn btn-danger fw-semibold px-4">Confirmar Exclusão</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
